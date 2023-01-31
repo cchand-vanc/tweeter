@@ -1,0 +1,11 @@
+header {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 280px;
+  background-color: #e3735e;
+  background-image: url(../images/brick-wall--dark--1920x1080.png);
+}
