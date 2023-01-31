@@ -25,4 +25,11 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
+ .container {
+  display: flex;
+  justify-content: center;
+  background-image: url(../images/brick-wall--dark--1920x1080.png);
+  padding-left: 10%;
+  padding-right: 10%;
+ }
  
