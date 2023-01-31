@@ -1,10 +1,10 @@
 header {
-  height: 400px;
+  height: 520px;
   width: 100%;
+  padding-top: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 280px;
   background-image: url(../images/brick-wall--dark--1920x1080.png);
 }

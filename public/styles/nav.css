@@ -24,4 +24,5 @@ nav {
 .fa-angles-down {
   display: flex;
   justify-content: center;
+  color:crimson;
 }
