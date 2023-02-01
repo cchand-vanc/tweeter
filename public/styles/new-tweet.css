@@ -24,7 +24,7 @@ textarea {
   display: flex;
   justify-content: space-between;
   font-family: 'Bungee', sans-serif;
-  border-top: 2px solid black;
+  border-top: 3px solid black;
   padding-top: 10px;
   margin-top: 10px;
 }
@@ -37,4 +37,55 @@ button {
 
 .negativeChars {
   color: crimson;
+}
+
+.tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: 35px;
+  padding: 20px 10px 20px 10px;
+  border-style: solid;
+}
+
+.tweet:hover {
+  box-shadow: 7px 7px rgb(200, 200, 200);
+}
+
+article.tweet header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 15px;
+  background-color: #f4f1ec;
+  padding: 0 5px 50px 5px;
+}
+
+article.tweet p {
+  padding: 0 10px 15px 10px;
+}
+
+article.tweet footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: small;
+  border-top: 3px solid black;
+  padding: 10px 15px 0 15px;
+}
+
+.action-icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fa-flag, .fa-retweet, .fa-heart {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+
+.fa-flag:hover, .fa-retweet:hover, .fa-heart:hover {
+  color: #E3735E;
 }
