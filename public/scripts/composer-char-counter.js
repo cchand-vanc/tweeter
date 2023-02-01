@@ -3,7 +3,7 @@ $(document).ready(function() {
     const charsRemaining = 140 - ($(this).val().length);
     console.log(charsRemaining)
     
-    const counter = $(this).closest('.new-tweet').find('.counter').text(charsRemaining);
+    const counter = $(this).next().children().last().text(charsRemaining);
 
     if (charsRemaining < 0) {
       $(counter).addClass('negativeChars');
