@@ -52,12 +52,25 @@ $(document).ready(() => {
   renderTweets(tweetDatabase)
 
   //Form Submission for new tweets
-  $('#tweet-text').submit(function (event) {
+  $('#tweet-form').submit(function (event) {
     event.preventDefault();
 
     const tweetData = $('#tweet-text').val();
     const serialData = $(this).serialize();
+    
+  //Validation checks
+  console.log('tweetData: ', tweetData)
+  console.log('tweetData.length: ', tweetData.length)
+  
+    if (tweetData.length === 0 ) {
+       alert("Hmmm I didn't quite catch that. Please type something to tweet about!")
+    }
 
+    if (tweetData.length > 140) {
+       return alert("Woah there chatterbox! Your tweet cannot be more than 140 characters!")
+    }
+
+  //POST /tweets/
     $.ajax({
       method: 'POST',
       url: '/tweets/',
@@ -73,7 +86,6 @@ $(document).ready(() => {
       method: 'GET',
       url: '/tweets/',
       success: function (response) {
-        console.log(response)
         return renderTweets(response)
       },
       error: function (error) {
