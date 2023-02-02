@@ -6,6 +6,12 @@
 
 $(document).ready(() => {
 
+  const escape = function (string) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(string));
+    return div.innerHTML;
+  };
+
   const tweetDatabase = []
 
   const renderTweets = function (tweetArray) {
@@ -21,6 +27,7 @@ $(document).ready(() => {
 
     const userInfo = tweet.user;
     const content = tweet.content;
+    const safeContent = escape(content.text);
     const daysAgo = timeago.format(tweet.created_at);
 
 
@@ -33,7 +40,7 @@ $(document).ready(() => {
     </header>
 
     <p class="tweet-paragraph">
-    ${content.text}
+    ${safeContent}
     </p>
 
     <footer>
@@ -52,7 +59,6 @@ $(document).ready(() => {
 
   renderTweets(tweetDatabase)
 
-
   //Form Submission for new tweets
   $('#tweet-form').submit(function (event) {
     event.preventDefault();
@@ -60,14 +66,25 @@ $(document).ready(() => {
     const tweetData = $('#tweet-text').val();
     const serialData = $(this).serialize();
     
-  //Validation checks  
-    if (tweetData.length === 0 ) {
-       alert("Hmmm I didn't quite catch that. Please type something to tweet about!")
-    }
-
-    if (tweetData.length > 140) {
-       return alert("Woah there chatterbox! Your tweet cannot be more than 140 characters!")
-    }
+  //Validation checks - these should probably be their own function
+  const $validationError = $('.validation-error');  
+  $validationError.slideUp();
+  
+  if (tweetData.length === 0) {
+    $('.validation-error').empty();
+    $validationError.text(`Cat got your tongue? 🐱 Write a tweet!`)
+    $validationError.slideDown();
+  }
+  
+  if (tweetData.length > 140) {
+    $('.validation-error').empty();
+    $validationError.text(`Woah there chatterbox! 📣 Your tweet is too long!`);
+    return $validationError.slideDown();
+  }
+  
+  if (tweetData.length > 0 && tweetData.length <= 140) {
+    $validationError.slideUp();
+  }
 
   //POST /tweets/
     $.ajax({

@@ -89,3 +89,15 @@ article.tweet footer {
 .fa-flag:hover, .fa-retweet:hover, .fa-heart:hover {
   color: #E3735E;
 }
+
+.validation-error {
+  display: flex;
+  justify-content: center;
+  line-height: 45px;
+  box-shadow: 0px 0px 0px 3px rgb(254, 78, 113) inset;
+  
+  color: rgb(254, 78, 113);
+  text-align: center;
+  white-space: pre-wrap;
+}
+
