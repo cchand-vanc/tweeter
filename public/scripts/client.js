@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+$(document).ready(() => {
 
 const tweetData = [
   {
@@ -30,13 +31,9 @@ const tweetData = [
   }
 ]
 
-
   const renderTweets = function(tweetArray) {
-    
-    
+     
     for (const tweet of tweetArray) {
-      console.log('tweetArray', tweetArray)
-      console.log('tweet', tweet)
       const renderedTweet = createTweetElement(tweet);
       $('#tweets-container').append(renderedTweet);
     }
@@ -79,8 +76,22 @@ const tweetData = [
     return $tweet;
   };
 
-  $(document).ready(() => {
-    renderTweets(tweetData)
- }
-);
+  renderTweets(tweetData)
 
+//Form Submission
+  $('#tweet-form').submit(function (event) {
+    event.preventDefault();
+
+    const tweetData = $('#tweet-text').val();
+    const serialData = $(this).serialize();
+
+    $.ajax({
+      method: 'POST',
+      url: '/tweets/',
+      data: serialData
+    })
+    .done(function (res) {
+      console.log('res', res)
+    })
+  })
+});
