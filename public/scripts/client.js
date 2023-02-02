@@ -9,10 +9,11 @@ $(document).ready(() => {
   const tweetDatabase = []
 
   const renderTweets = function (tweetArray) {
+    $('#tweets-container').empty();
 
     for (const tweet of tweetArray) {
       const renderedTweet = createTweetElement(tweet);
-      $('#tweets-container').append(renderedTweet);
+      $('#tweets-container').prepend(renderedTweet);
     }
   };
 
@@ -51,6 +52,7 @@ $(document).ready(() => {
 
   renderTweets(tweetDatabase)
 
+
   //Form Submission for new tweets
   $('#tweet-form').submit(function (event) {
     event.preventDefault();
@@ -58,10 +60,7 @@ $(document).ready(() => {
     const tweetData = $('#tweet-text').val();
     const serialData = $(this).serialize();
     
-  //Validation checks
-  console.log('tweetData: ', tweetData)
-  console.log('tweetData.length: ', tweetData.length)
-  
+  //Validation checks  
     if (tweetData.length === 0 ) {
        alert("Hmmm I didn't quite catch that. Please type something to tweet about!")
     }
@@ -74,11 +73,11 @@ $(document).ready(() => {
     $.ajax({
       method: 'POST',
       url: '/tweets/',
-      data: serialData
-    })
-    // .done(function (res) { //mentor suggested using .done
-    //   console.log('res', res)
-    // });
+      data: serialData,
+      success: () => {
+        loadTweets();
+      }
+    });
   });
 
   const loadTweets = function () {
