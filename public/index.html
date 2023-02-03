@@ -35,7 +35,7 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="tweeter-header">tweeter</span>
-      <span class="write-new-tweet"><strong>Write</strong> a new tweet<i class="fa-solid fa-angles-down"></i></span>
+      <span class="write-new-tweet"><strong>Write</strong> a new tweet<i class="fa-solid fa-angles-down fa-bounce" style="--fa-bounce-height: 4"></i></span>
     </nav>
 
     <header class="page-header">
@@ -48,20 +48,8 @@
       </div>
     </header>
 
-    <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <div class="validation-error"></div>
-        <form method="post" action="/tweets/" id="tweet-form">
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-          <div class="button-counter">
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-    <!-- Tweets content here -->
+      <section class="new-tweet"></section>
       <div id="tweets-container"></div>
     </main>
   </body>
