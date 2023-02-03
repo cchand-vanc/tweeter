@@ -93,6 +93,8 @@ $(document).ready(() => {
       data: serialData,
       success: () => {
         loadTweets();
+        $("#tweet-text").val("");
+        $(".counter").val("140");
       }
     });
   });
