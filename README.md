@@ -14,5 +14,17 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Dependencies
 
+- Body Parser
+- Chance
 - Express
+- MD5
 - Node 5.10.x or above
+- Timeago
+
+## Previews
+
+!["Tweeter feed on desktop"](https://github.com/cchand-vanc/tweeter/blob/master/docs/desktop_tweeter.png?raw=true)
+!["Tweeter feed resizes for tablet responsive "](https://github.com/cchand-vanc/tweeter/blob/master/docs/tablet_tweeter.png?raw=true)
+!["Tweeter feed resizes for mobile, with composition box"](https://github.com/cchand-vanc/tweeter/blob/master/docs/mobile_tweeter.png?raw=true)
+!["Wrting a tweet!"](https://github.com/cchand-vanc/tweeter/blob/master/docs/composing_tweet.png?raw=true)
+!["Error message is revealed when tweet is too long"](https://github.com/cchand-vanc/tweeter/blob/master/docs/error_tweeter.png)
