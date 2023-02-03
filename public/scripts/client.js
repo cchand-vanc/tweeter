@@ -6,9 +6,9 @@
 $(document).ready(() => {
 
 
-  const tweetDatabase = []
+  const tweetDatabase = [];
 
-  const renderTweets = function (tweetArray) {
+  const renderTweets = function (tweetArray){
     $('#tweets-container').empty();
 
     for (const tweet of tweetArray) {
@@ -17,13 +17,13 @@ $(document).ready(() => {
     }
   };
 
-  const escape = function (string) {
+  const escape = function (string){
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(string));
     return div.innerHTML;
   };
 
-  const createTweetElement = function (tweet) {
+  const createTweetElement = function (tweet){
 
     const userInfo = tweet.user;
     const content = tweet.content;
@@ -58,14 +58,14 @@ $(document).ready(() => {
       </span>
     </footer>
     </article>`
-    )
+    );
 
     return $tweet;
   };
 
-  renderTweets(tweetDatabase)
+  renderTweets(tweetDatabase);
 
-  //STRETCH: Tweet button slides tweet box into view
+  //Tweet button slides tweet box into view
   const $newTweet = $(`<section class="new-tweet">
 <h2>Compose Tweet</h2>
 <div class="validation-error"></div>
@@ -80,26 +80,26 @@ $(document).ready(() => {
   $('.new-tweet').prepend($newTweet);
   $newTweet.slideUp();
 
-  $('.write-new-tweet').click(function () {
+  $('.write-new-tweet').click(function (){
     $newTweet.slideDown("slow");
     $('#tweet-text').focus();
-  })
-  
+  });
+
 
   //Form Submission for new tweets
-  $('#tweet-form').submit(function (event) {
+  $('#tweet-form').submit(function (event){
     event.preventDefault();
 
     const tweetData = $('#tweet-text').val();
     const serialData = $(this).serialize();
 
-    //Validation checks - these should probably be their own function
+    //Validation checks
     const $validationError = $('.validation-error');
     $validationError.slideUp();
 
     if (tweetData.length === 0) {
       $('.validation-error').empty();
-      $validationError.text(`Cat got your tongue? 🐱 Write a tweet!`)
+      $validationError.text(`Cat got your tongue? 🐱 Write a tweet!`);
       $validationError.slideDown();
     }
 
@@ -126,19 +126,19 @@ $(document).ready(() => {
     });
   });
 
-  const loadTweets = function () {
+  const loadTweets = function (){
     $.ajax({
       method: 'GET',
       url: '/tweets/',
-      success: function (response) {
-        return renderTweets(response)
+      success: function (response){
+        return renderTweets(response);
       },
-      error: function (error) {
-        console.log('Error', error)
+      error: function (error){
+        console.log('Error', error);
       }
-    })
-  }
-  loadTweets()
+    });
+  };
+  loadTweets();
 
 });
 
