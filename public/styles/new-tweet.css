@@ -33,6 +33,7 @@ button {
   background-color: #4056A1;
   color: #FFFFFF;
   border-color: #4056A1;
+  cursor: pointer;
 }
 
 .negativeChars {

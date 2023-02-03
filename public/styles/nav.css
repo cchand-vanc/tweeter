@@ -24,7 +24,8 @@ nav {
 
 .write-new-tweet {
   width: auto;
-  padding: 1.5em;
+  margin: 1.5em;
+  cursor: pointer;
 }
 
 .fa-angles-down {
@@ -41,8 +42,8 @@ nav {
 @media (max-width: 768px) {
   nav {
     background-color: transparent;
-    position: relative; 
     background-image: url(../images/brick-wall--dark--1920x1080.png);
+    position: relative;
   }
 
   .fa-angles-down {
