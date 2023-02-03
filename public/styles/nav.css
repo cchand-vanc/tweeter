@@ -1,11 +1,18 @@
 nav {
+
+  /* Positioning */
   display: flex;
   justify-content: space-between;
+  padding: 0, 1.5em, 0, 1.5em;
+  position: fixed;
+
+  /* Size */
   height: 120px;
   width: 100%;
+
+  /* Visuals */
   background-color: #4056A1;
   color: #FFFFFF;
-  position: fixed;
 }
 
 .tweeter-header {
@@ -16,13 +23,29 @@ nav {
 }
 
 .write-new-tweet {
-  display: flex;
-  flex-direction: column;
+  width: auto;
   padding: 1.5em;
 }
 
 .fa-angles-down {
-  display: flex;
-  justify-content: center;
-  color:crimson;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1em;
+  color:#E3735E;
+}
+
+
+
+/* Mobile view */
+@media (max-width: 768px) {
+  nav {
+    background-color: transparent;
+    position: relative; 
+    background-image: url(../images/brick-wall--dark--1920x1080.png);
+  }
+
+  .fa-angles-down {
+    color: white;
+  }
 }

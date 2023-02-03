@@ -1,11 +1,43 @@
 .page-header {
+
+  /* Positioning */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  line-height: 10px;
+
+  /* Size  */
   height: 520px;
   width: 100%;
   padding-top: 120px;
+
+  /* Visuals */
   color: white;
   background-image: url(../images/brick-wall--dark--1920x1080.png);
+}
+
+.surname {
+  font-weight: normal
+}
+
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .page-header {
+    padding-top: 0;
+    height: 335px
+} 
+}
+
+/* Desktop view */
+@media screen and (min-width: 1024px) {
+  .page-header {
+    width: 40%;
+    height: 400px;
+    float: left;
+    margin-top: 210px;
+    margin-left: 100px; 
+    padding: 40px 0 10px 0;
+  }
 }
